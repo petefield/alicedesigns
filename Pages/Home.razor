@@ -1,0 +1,42 @@
+@page "/"
+
+<PageTitle>Alice Designs Craft Shop</PageTitle>
+
+<section class="hero-section mb-4">
+    <p class="text-uppercase fw-semibold mb-2">Handmade with care</p>
+    <h1 class="display-5 mb-3">Alice Designs Craft Shop</h1>
+    <p class="lead mb-0">Discover one-of-a-kind handmade gifts, home decor, and seasonal favorites crafted in small batches.</p>
+</section>
+
+<section aria-label="Featured craft products">
+    <h2 class="h3 mb-3">Featured Products</h2>
+    <div class="row g-3">
+        @foreach (var product in Products)
+        {
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card h-100 product-card shadow-sm border-0">
+                    <div class="card-body d-flex flex-column">
+                        <p class="text-muted text-uppercase small mb-2">@product.Category</p>
+                        <h3 class="h5 card-title">@product.Name</h3>
+                        <p class="card-text flex-grow-1">@product.Description</p>
+                        <p class="fw-semibold mb-0">@product.Price</p>
+                    </div>
+                </article>
+            </div>
+        }
+    </div>
+</section>
+
+@code {
+    private static readonly Product[] Products =
+    [
+        new("Knitted Coaster Set", "Home Decor", "A set of 4 soft cotton coasters in earthy tones.", "$18"),
+        new("Lavender Soy Candle", "Candles", "Hand-poured 8oz soy candle with calming lavender aroma.", "$16"),
+        new("Pressed Flower Bookmark", "Stationery", "Laminated floral bookmark made from real pressed flowers.", "$9"),
+        new("Macramé Plant Hanger", "Home Decor", "Braided cotton hanger sized for 4 to 6 inch pots.", "$24"),
+        new("Seasonal Gift Box", "Gift Sets", "Curated mini box with artisan soap, tea blend, and trinkets.", "$32"),
+        new("Personalized Name Tag", "Accessories", "Custom engraved wooden tag for bags or keychains.", "$12")
+    ];
+
+    private sealed record Product(string Name, string Category, string Description, string Price);
+}
