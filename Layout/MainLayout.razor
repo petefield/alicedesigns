@@ -1,16 +1,21 @@
 @inherits LayoutComponentBase
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<div class="site-shell">
+    <header class="site-header">
+        <a class="brand" href="" aria-label="Alice Designs home">ALICE<span>DESIGNS</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="#collection">Shop</a>
+            <a href="#story">Our story</a>
+        </nav>
+    </header>
 
     <main>
-        <div class="top-row px-4">
-            <span class="fw-semibold">Artisan craft showcase</span>
-        </div>
-
-        <article class="content px-4">
+        <article class="content">
             @Body
         </article>
     </main>
+
+    <footer class="site-footer">
+        <p>Small rituals, thoughtfully made.</p>
+        <a href="mailto:hello@alicedesigns.example">hello@alicedesigns.example</a>
+    </footer>
 </div>
